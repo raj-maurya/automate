@@ -12,9 +12,9 @@ angular.module('myApp.home', ['ngRoute'])
 
 // Home controller
 .controller('HomeCtrl', ['$scope', '$firebaseAuth', function($scope, $firebaseAuth) {
-  var ref = new Firebase('https://blogapp-df403.firebaseio.com/');
-var loginObj = $firebaseAuth(ref);
- console.log(ref);
+//  var ref = new Firebase('https://blogapp-df403.firebaseio.com/');
+//var loginObj = $firebaseAuth(ref);
+ //console.log(ref);
   $scope.home = function(event) {
   //  console.log("fetching username and pass");
       event.preventDefault();  // To prevent form refresh
@@ -22,7 +22,16 @@ var loginObj = $firebaseAuth(ref);
      var password = $scope.user.password;
 console.log(username+"   "+ password);
 
-loginObj.$authWithPassword({
+var auth= $firebaseAuth();
+
+      firebase.auth().signInWithEmailAndPassword(username , password).then(function(){
+         alert("User Login Successful");
+      }).catch(function(){
+          //console.log(error);
+          alert("Error in username or password! try again..!");
+      });
+
+/*loginObj.$authWithPassword({
            email: username,
            password: password
        })
@@ -32,7 +41,7 @@ loginObj.$authWithPassword({
        }, function(error) {
            //Failure callback
            console.log('Authentication failure');
-       });
+       }); */
 
       }
 
