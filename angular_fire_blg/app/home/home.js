@@ -11,7 +11,7 @@ angular.module('myApp.home', ['ngRoute'])
 }])
 
 // Home controller
-.controller('HomeCtrl', ['$scope', '$firebaseAuth', function($scope, $firebaseAuth) {
+.controller('HomeCtrl', ['$scope','$location', '$firebaseAuth', function($scope, $location,$firebaseAuth) {
 //  var ref = new Firebase('https://blogapp-df403.firebaseio.com/');
 //var loginObj = $firebaseAuth(ref);
  //console.log(ref);
@@ -25,7 +25,8 @@ console.log(username+"   "+ password);
 var auth= $firebaseAuth();
 
       firebase.auth().signInWithEmailAndPassword(username , password).then(function(){
-         alert("User Login Successful");
+        // alert("User Login Successful");
+         $location.path('/welcome');
       }).catch(function(){
           //console.log(error);
           alert("Error in username or password! try again..!");

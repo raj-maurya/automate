@@ -4,7 +4,9 @@
 angular.module('myApp', [
   'ngRoute',
   'firebase',
-  'myApp.home'
+  'myApp.home',
+  'myApp.register',
+  'myApp.welcome'
 ]).
 config(['$routeProvider', function($routeProvider) {
      // Routes will be here
