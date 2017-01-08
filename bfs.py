@@ -1,17 +1,20 @@
 
-import heapq
 
-class PriorityQueue:
+class Queue:
     def __init__(self):
-        self._queue = []
-        self._index = 0
+        self.items = []
 
-    def push(self, item, priority):
-        heapq.heappush(self._queue, (-priority, self._index, item))
-        self._index += 1
+    def isEmpty(self):
+        return self.items == []
 
-    def pop(self):
-        return heapq.heappop(self._queue)[-1]
+    def enqueue(self, item):
+        self.items.insert(0,item)
+
+    def dequeue(self):
+        return self.items.pop()
+
+    def size(self):
+        return len(self.items)
 
 
 
@@ -27,8 +30,8 @@ graph["c3"] = []
 
 
 def search(name):
-    search_queue = deque()
-    search_queue += graph[name]
+    search_queue = Queue()
+    search_queue =  search_queue + graph[name]
     searched = []
     while search_queue:
         person = search_queue.popleft()
