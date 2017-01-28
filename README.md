@@ -1,3 +1,3 @@
 # automate
 
-### automating the cool stuff using [python]
+### automating the cool stuff with [python]
