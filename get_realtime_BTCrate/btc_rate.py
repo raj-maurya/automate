@@ -6,7 +6,7 @@ import os.path
 
 
 #count = 0
-data = (requests.get("https://www.bitstamp.net/api/v2/ticker/btcusd/").json())
+data = requests.get("https://www.bitstamp.net/api/v2/ticker/btcusd/").json()
 
 os.path.exists('./bitcoin.csv')
 
