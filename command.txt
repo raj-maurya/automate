@@ -1,0 +1,7 @@
+$ Express
+
+install dependencies:
+     $ cd . && npm install
+
+   run the app:
+     $ DEBUG=mongo_walk_node:* npm start
